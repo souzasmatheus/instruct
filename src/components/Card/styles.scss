@@ -1,0 +1,49 @@
+.card-container {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 6px grey;
+  margin: {
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+  }
+
+  .card-header {
+    border-bottom: 1px solid #8383833e;
+    padding: 15px 20px;
+
+    .name {
+      line-height: 28px;
+      font: {
+        family: 'Oswald', sans-serif;
+        size: 26px;
+      }
+    }
+
+    .username {
+      color: #545454;
+      font: {
+        family: 'Inconsolata', monospace;
+        size: 16px;
+      }
+    }
+  }
+
+  .card-content {
+    padding: 15px 20px;
+
+    .info-group {
+      padding-bottom: 15px;
+
+      p:first-of-type {
+        font-family: 'Inconsolata', monospace;
+        color: #545454;
+      }
+
+      p:last-of-type {
+        font-family: 'Oswald', sans-serif;
+        padding-left: 15px;
+      }
+    }
+  }
+}
