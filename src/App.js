@@ -5,6 +5,7 @@ import Card from './components/Card';
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -22,8 +23,12 @@ function App() {
     })();
   }, []);
 
-  const cards = users.map(
-    ({ name, username, email, address, phone, website }, index) => (
+  const cards = users
+    .filter(user => {
+      const emailSufix = user.email.split('@')[1];
+      return emailSufix.includes(`.${query}`) ? true : false;
+    })
+    .map(({ name, username, email, address, phone, website }, index) => (
       <Card
         key={`card-${index + 1}`}
         name={name}
@@ -33,8 +38,7 @@ function App() {
         phone={phone}
         website={website}
       />
-    )
-  );
+    ));
 
   return (
     <div className="App">
@@ -42,7 +46,11 @@ function App() {
         <label htmlFor="query">Insira um sufixo de e-mail:</label>
         <div className="input-btn-container">
           <p>.</p>
-          <input type="text" placeholder="" />
+          <input
+            onChange={e => setQuery(e.target.value)}
+            type="text"
+            placeholder=""
+          />
         </div>
       </header>
 
