@@ -1,0 +1,50 @@
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .input-label-container {
+    margin: {
+      top: 40px;
+      bottom: 40px;
+    }
+
+    label {
+      font: {
+        family: 'Oswald', sans-serif;
+        size: 22px;
+      }
+    }
+
+    .input-btn-container {
+      margin-top: 10px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      p {
+        padding-right: 5px;
+        font-size: 20px;
+      }
+
+      input {
+        width: 60px;
+        text-align: center;
+        font: {
+          family: 'Inconsolata', monospace;
+          size: 20px;
+        }
+
+        border: 1px solid #8383833e;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .cards-container {
+    max-width: 1020px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
