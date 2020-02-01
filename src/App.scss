@@ -46,5 +46,15 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
+    .error-message {
+      color: rgb(232, 27, 27);
+      font: {
+        family: 'Oswald', sans-serif;
+        size: 20px;
+      }
+      margin: '0 10px';
+      text-align: center;
+    }
   }
 }

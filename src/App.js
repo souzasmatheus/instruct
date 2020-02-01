@@ -5,7 +5,8 @@ import Card from './components/Card';
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -18,7 +19,7 @@ function App() {
 
         setUsers(result.data);
       } catch (e) {
-        // setError('An error occurred. Please, reload application.');
+        setError('Um erro ocorreu. Por favor, recarregue a aplicação.');
       }
     })();
   }, []);
@@ -26,7 +27,7 @@ function App() {
   const cards = users
     .filter(user => {
       const emailSufix = user.email.split('@')[1];
-      return emailSufix.includes(`.${query}`) ? true : false;
+      return emailSufix.includes(`.${query.toLowerCase()}`) ? true : false;
     })
     .map(({ name, username, email, address, phone, website }, index) => (
       <Card
@@ -54,7 +55,10 @@ function App() {
         </div>
       </header>
 
-      <section className="cards-container">{cards}</section>
+      <section className="cards-container">
+        {error && <p className="error-message">{error}</p>}
+        {cards}
+      </section>
     </div>
   );
 }
